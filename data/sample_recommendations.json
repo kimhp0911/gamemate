@@ -1,0 +1,13 @@
+{
+  "games": [
+    {
+      "id": "genshin",
+      "name": "원신"
+    },
+    {
+      "id": "starrail",
+      "name": "붕괴: 스타레일"
+    }
+  ],
+  "recommendations": []
+}
