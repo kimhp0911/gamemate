@@ -385,6 +385,15 @@ class MainWindow(QMainWindow):
                     lines.append(line)
         return "\n".join(lines)
 
+    def load_genshin_build_recommendations(self):
+        path = Path(__file__).resolve().parent.parent / "data" / "genshin_build_recommendations.json"
+        try:
+            with path.open("r", encoding="utf-8") as f:
+                payload = json.load(f)
+            return payload.get("characters", {}) if isinstance(payload, dict) else {}
+        except (OSError, json.JSONDecodeError):
+            return {}
+
     def load_genshin_characters(self):
         base_path, user_path = self.genshin_data_paths()
         try:
@@ -395,6 +404,7 @@ class MainWindow(QMainWindow):
             characters = []
 
         self.genshin_weapon_recommendations = self.load_genshin_weapon_recommendations()
+        self.genshin_build_recommendations = self.load_genshin_build_recommendations()
 
         self.genshin_user_data = {
             "overrides": {},
@@ -419,6 +429,11 @@ class MainWindow(QMainWindow):
             character.update(overrides.get(character.get("id"), {}))
             if not str(character.get("recommended_weapons", "")).strip():
                 character["recommended_weapons"] = self.weapon_recommendations_text(character)
+            build_key = re.sub(r"[^a-z0-9]+", "-", str(character.get("english", "")).casefold()).strip("-")
+            build_data = self.genshin_build_recommendations.get(build_key, {})
+            for field in ("recommended_artifacts", "artifact_main_stats", "artifact_sub_stats", "talent_priority", "recommended_team"):
+                if not str(character.get(field, "")).strip() and build_data.get(field):
+                    character[field] = build_data[field]
             character.setdefault("recommended_weapons", "")
             character.setdefault("recommended_artifacts", "")
             character.setdefault("artifact_main_stats", "")
