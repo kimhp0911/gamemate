@@ -80,7 +80,6 @@ class MainWindow(QMainWindow):
         self.pages = QStackedWidget()
         self.pages.addWidget(self.build_dashboard())
         self.genshin_characters = self.load_genshin_characters()
-        self.genshin_weapon_recommendations = self.load_genshin_weapon_recommendations()
         self.pages.addWidget(self.build_genshin_page())
         self.pages.addWidget(self.build_simple_page("붕괴: 스타레일", "캐릭터와 광추, 유물 정보를 정리하세요.", "캐릭터 도감과 유물 정보는 다음 업데이트에서 연결할 예정입니다."))
         self.pages.addWidget(self.build_simple_page("내 계정", "게임별 계정 데이터와 가져오기 상태를 확인하세요.", "공식적으로 허용되는 데이터 가져오기 방식을 우선 지원할 예정입니다."))
@@ -407,33 +406,6 @@ class MainWindow(QMainWindow):
             merged.append(character)
         return merged
 
-    def load_genshin_weapon_recommendations(self):
-        path = Path(__file__).resolve().parent.parent / "data" / "genshin_weapon_recommendations.json"
-        try:
-            with path.open("r", encoding="utf-8") as f:
-                payload = json.load(f)
-            return payload.get("characters", {}) if isinstance(payload, dict) else {}
-        except (OSError, json.JSONDecodeError):
-            return {}
-
-    def format_weapon_recommendations(self, character):
-        data = self.genshin_weapon_recommendations.get(character.get("id"), {})
-        builds = data.get("builds", []) if isinstance(data, dict) else []
-        if not builds:
-            return ""
-        lines = []
-        for build in builds:
-            label = build.get("build", "추천 빌드")
-            lines.append(f"[{label}]")
-            for rank, tier in enumerate(build.get("tiers", [])[:4], start=1):
-                names = ", ".join(tier.get("weapons", []))
-                if names:
-                    lines.append(f"{rank}순위: {names}")
-        source = data.get("source_version", "")
-        if source:
-            lines.append(f"\n데이터 기준 버전: {source}")
-        return "\n".join(lines)
-
     def save_genshin_user_data(self):
         _, user_path = self.genshin_data_paths()
         user_path.parent.mkdir(parents=True, exist_ok=True)
@@ -659,7 +631,7 @@ class MainWindow(QMainWindow):
         )
         self.genshin_detail_role.setText(f'전투 역할  ·  {character.get("role", "미입력")}')
         self.genshin_detail_summary.setText(character.get("summary", "설명이 없습니다."))
-        weapons = character.get("recommended_weapons", "").strip() or self.format_weapon_recommendations(character) or "미등록"
+        weapons = character.get("recommended_weapons", "").strip() or "미등록"
         artifacts = character.get("recommended_artifacts", "").strip() or "미등록"
         self.genshin_detail_build.setText(f"추천 무기\n{weapons}\n\n추천 성유물\n{artifacts}")
         main_stats = character.get("artifact_main_stats", "").strip() or "미등록"
