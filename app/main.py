@@ -355,6 +355,36 @@ class MainWindow(QMainWindow):
             data_dir / "user_genshin_customizations.json",
         )
 
+    def load_genshin_weapon_recommendations(self):
+        path = Path(__file__).resolve().parent.parent / "data" / "genshin_weapon_recommendations.json"
+        try:
+            with path.open("r", encoding="utf-8") as f:
+                payload = json.load(f)
+            return payload.get("characters", {}) if isinstance(payload, dict) else {}
+        except (OSError, json.JSONDecodeError):
+            return {}
+
+    def weapon_recommendations_text(self, character):
+        english = str(character.get("english", "")).casefold()
+        key = re.sub(r"[^a-z0-9]+", "-", english).strip("-")
+        entry = self.genshin_weapon_recommendations.get(key, {})
+        builds = entry.get("builds", []) if isinstance(entry, dict) else []
+        if not builds:
+            return ""
+        lines = []
+        for build in builds:
+            lines.append(f"[{build.get('label', '범용 추천')}]")
+            for tier in build.get("tiers", []):
+                rank = tier.get("rank", "")
+                weapons = ", ".join(tier.get("weapons", []))
+                reason = tier.get("reason", "")
+                if weapons:
+                    line = f"{rank}순위: {weapons}" if rank else weapons
+                    if reason:
+                        line += f" — {reason}"
+                    lines.append(line)
+        return "\\n".join(lines)
+
     def load_genshin_characters(self):
         base_path, user_path = self.genshin_data_paths()
         try:
@@ -363,6 +393,8 @@ class MainWindow(QMainWindow):
             characters = payload.get("characters", [])
         except (OSError, json.JSONDecodeError):
             characters = []
+
+        self.genshin_weapon_recommendations = self.load_genshin_weapon_recommendations()
 
         self.genshin_user_data = {
             "overrides": {},
@@ -385,6 +417,8 @@ class MainWindow(QMainWindow):
             if character.get("id") in deleted:
                 continue
             character.update(overrides.get(character.get("id"), {}))
+            if not str(character.get("recommended_weapons", "")).strip():
+                character["recommended_weapons"] = self.weapon_recommendations_text(character)
             character.setdefault("recommended_weapons", "")
             character.setdefault("recommended_artifacts", "")
             character.setdefault("artifact_main_stats", "")
