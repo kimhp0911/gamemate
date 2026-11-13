@@ -383,7 +383,7 @@ class MainWindow(QMainWindow):
                     if reason:
                         line += f" — {reason}"
                     lines.append(line)
-        return "\\n".join(lines)
+        return "\n".join(lines)
 
     def load_genshin_characters(self):
         base_path, user_path = self.genshin_data_paths()
