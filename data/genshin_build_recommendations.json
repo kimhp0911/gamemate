@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-13",
+  "description": "GameMate 자체 정리 초기 육성 가이드. 대표 운용 기준이며 파티, 별자리, 무기, 원소 충전 효율에 따라 조정이 필요합니다. 사용자가 직접 입력한 값은 이 기본값보다 우선합니다.",
+  "characters": {
+    "amber": {
+      "recommended_artifacts": "대지를 유랑하는 악단 4세트 (강공격) / 불타오르는 화염의 마녀 4세트 (원소 반응)",
+      "artifact_main_stats": "시계: 공격력% / 성배: 불 원소 피해 보너스 / 왕관: 치명타 확률·피해",
+      "artifact_sub_stats": "치명타 확률·피해 > 공격력% > 원소 마스터리",
+      "talent_priority": "일반 공격(강공격) > 원소 폭발 > 원소전투 스킬",
+      "recommended_team": "융해: 엠버 · 베넷 · 로자리아 · 디오나"
+    },
+    "kaeya": {
+      "recommended_artifacts": "얼음바람 속에서 길을 잃은 용사 4세트 (빙결) / 옛 왕실의 의식 4세트 (폭발 지원)",
+      "artifact_main_stats": "시계: 공격력% / 성배: 얼음 원소 피해 보너스 / 왕관: 치명타 피해(빙결 4세트 사용 시 치명타 확률 조정)",
+      "artifact_sub_stats": "치명타 확률·피해 > 공격력% > 원소 충전 효율",
+      "talent_priority": "원소 폭발 > 원소전투 스킬 > 일반 공격",
+      "recommended_team": "빙결: 케이아 · 행추 · 설탕 · 디오나"
+    },
+    "lisa": {
+      "recommended_artifacts": "번개 같은 분노 4세트 / 도금된 꿈 4세트",
+      "artifact_main_stats": "시계: 공격력% 또는 원소 마스터리 / 성배: 번개 원소 피해 보너스 / 왕관: 치명타 확률·피해",
+      "artifact_sub_stats": "치명타 확률·피해 > 공격력%·원소 마스터리 > 원소 충전 효율",
+      "talent_priority": "원소 폭발 > 원소전투 스킬 > 일반 공격",
+      "recommended_team": "촉진: 리사 · 나히다 · 피슬 · 종려"
+    },
+    "barbara": {
+      "recommended_artifacts": "바다에 물든 거대 조개 4세트 / 사랑받는 소녀 4세트",
+      "artifact_main_stats": "시계: HP% / 성배: HP% / 왕관: 치유 보너스 또는 HP%",
+      "artifact_sub_stats": "HP% > 원소 충전 효율 > HP",
+      "talent_priority": "원소전투 스킬·원소 폭발 (회복 필요도에 따라) > 일반 공격",
+      "recommended_team": "개화 입문: 바바라 · 나히다 · 행추 · 풀 여행자"
+    },
+    "xiangling": {
+      "recommended_artifacts": "절연의 기치 4세트",
+      "artifact_main_stats": "시계: 원소 충전 효율 또는 공격력%·원소 마스터리 / 성배: 불 원소 피해 보너스 / 왕관: 치명타 확률·피해",
+      "artifact_sub_stats": "원소 충전 효율(요구량까지) > 치명타 확률·피해 > 공격력%·원소 마스터리",
+      "talent_priority": "원소 폭발 > 원소전투 스킬 > 일반 공격",
+      "recommended_team": "국대 조합: 향릉 · 베넷 · 행추 · 중운"
+    },
+    "bennett": {
+      "recommended_artifacts": "옛 왕실의 의식 4세트",
+      "artifact_main_stats": "시계: 원소 충전 효율 또는 HP% / 성배: HP% / 왕관: 치유 보너스 또는 HP%",
+      "artifact_sub_stats": "원소 충전 효율(요구량까지) > HP% > 치명타 확률(페보니우스 검 사용 시)",
+      "talent_priority": "원소 폭발 > 원소전투 스킬 > 일반 공격",
+      "recommended_team": "증발 지원: 베넷 · 향릉 · 행추 · 라이덴 쇼군"
+    },
+    "xingqiu": {
+      "recommended_artifacts": "절연의 기치 4세트",
+      "artifact_main_stats": "시계: 원소 충전 효율 또는 공격력% / 성배: 물 원소 피해 보너스 / 왕관: 치명타 확률·피해",
+      "artifact_sub_stats": "원소 충전 효율(요구량까지) > 치명타 확률·피해 > 공격력%",
+      "talent_priority": "원소 폭발 > 원소전투 스킬 > 일반 공격",
+      "recommended_team": "국대 조합: 행추 · 향릉 · 베넷 · 중운"
+    },
+    "noelle": {
+      "recommended_artifacts": "풍요로운 꿈의 껍데기 4세트",
+      "artifact_main_stats": "시계: 방어력% / 성배: 바위 원소 피해 보너스 또는 방어력% / 왕관: 치명타 확률·피해",
+      "artifact_sub_stats": "치명타 확률·피해 > 방어력% > 원소 충전 효율",
+      "talent_priority": "원소 폭발 ≈ 일반 공격 > 원소전투 스킬",
+      "recommended_team": "바위 파티 예시: 노엘 · 고로 · 운근 · 푸리나"
+    },
+    "fischl": {
+      "recommended_artifacts": "황금 극단 4세트 (오프필드) / 번개 같은 분노 4세트",
+      "artifact_main_stats": "시계: 공격력% 또는 원소 마스터리(촉진) / 성배: 번개 원소 피해 보너스 / 왕관: 치명타 확률·피해",
+      "artifact_sub_stats": "치명타 확률·피해 > 공격력%·원소 마스터리 > 원소 충전 효율",
+      "talent_priority": "원소전투 스킬 > 원소 폭발 > 일반 공격",
+      "recommended_team": "촉진: 피슬 · 나히다 · 리사 · 종려"
+    },
+    "sucrose": {
+      "recommended_artifacts": "청록색 그림자 4세트",
+      "artifact_main_stats": "시계: 원소 마스터리 / 성배: 원소 마스터리 / 왕관: 원소 마스터리",
+      "artifact_sub_stats": "원소 마스터리 > 원소 충전 효율",
+      "talent_priority": "원소전투 스킬·원소 폭발 (필요도에 따라) > 일반 공격",
+      "recommended_team": "감전: 설탕 · 행추 · 피슬 · 북두"
+    },
+    "zhongli": {
+      "recommended_artifacts": "견고한 천암 4세트 (보호막 지원) / 옛 왕실의 의식 4세트 (팀 버프)",
+      "artifact_main_stats": "시계: HP% / 성배: HP% / 왕관: HP%",
+      "artifact_sub_stats": "HP% > HP > 원소 충전 효율",
+      "talent_priority": "원소전투 스킬 > 원소 폭발 > 일반 공격 (보호막 중심)",
+      "recommended_team": "범용 보호막: 종려 · 느비예트 · 푸리나 · 카즈하"
+    },
+    "raiden-shogun": {
+      "recommended_artifacts": "절연의 기치 4세트",
+      "artifact_main_stats": "시계: 원소 충전 효율 또는 공격력% / 성배: 공격력% 또는 번개 원소 피해 보너스 / 왕관: 치명타 확률·피해",
+      "artifact_sub_stats": "치명타 확률·피해 > 원소 충전 효율(요구량까지) > 공격력%",
+      "talent_priority": "원소 폭발 > 원소전투 스킬 > 일반 공격",
+      "recommended_team": "국대 조합: 라이덴 쇼군 · 향릉 · 베넷 · 행추"
+    },
+    "nahida": {
+      "recommended_artifacts": "숲의 기억 4세트 (파티 내 다른 캐릭터가 착용하지 않을 때) / 도금된 꿈 4세트",
+      "artifact_main_stats": "시계: 원소 마스터리 / 성배: 원소 마스터리 또는 풀 원소 피해 보너스 / 왕관: 치명타 확률·피해 또는 원소 마스터리",
+      "artifact_sub_stats": "치명타 확률·피해 > 원소 마스터리(상황에 따라 1000까지) > 원소 충전 효율",
+      "talent_priority": "원소전투 스킬 > 원소 폭발 > 일반 공격",
+      "recommended_team": "격화: 나히다 · 라이덴 쇼군 · 피슬 · 종려"
+    },
+    "furina": {
+      "recommended_artifacts": "황금 극단 4세트 (오프필드)",
+      "artifact_main_stats": "시계: 원소 충전 효율 또는 HP% / 성배: HP% / 왕관: 치명타 확률·피해 또는 HP%",
+      "artifact_sub_stats": "원소 충전 효율(요구량까지) > 치명타 확률·피해 > HP%",
+      "talent_priority": "원소전투 스킬 > 원소 폭발 > 일반 공격",
+      "recommended_team": "느비예트 조합: 느비예트 · 푸리나 · 카즈하 · 종려"
+    },
+    "arlecchino": {
+      "recommended_artifacts": "조화로운 공상의 단편 4세트 / 검투사의 피날레 4세트",
+      "artifact_main_stats": "시계: 공격력% / 성배: 불 원소 피해 보너스 / 왕관: 치명타 확률·피해",
+      "artifact_sub_stats": "치명타 확률·피해 > 공격력% > 원소 마스터리",
+      "talent_priority": "일반 공격 > 원소전투 스킬 > 원소 폭발",
+      "recommended_team": "증발: 아를레키노 · 행추 · 베넷 · 종려"
+    },
+    "neuvillette": {
+      "recommended_artifacts": "그림자 사냥꾼 4세트",
+      "artifact_main_stats": "시계: HP% / 성배: 물 원소 피해 보너스 또는 HP% / 왕관: 치명타 피해·확률",
+      "artifact_sub_stats": "치명타 피해·확률 > HP% > 원소 충전 효율",
+      "talent_priority": "일반 공격(강공격 계수) > 원소 폭발 > 원소전투 스킬",
+      "recommended_team": "범용: 느비예트 · 푸리나 · 카즈하 · 종려"
+    }
+  }
+}
